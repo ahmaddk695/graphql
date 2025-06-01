@@ -35,7 +35,8 @@ function isLoggedIn() {
 
 // Redirect if not logged in
 function requireAuth() {
-    if (!isLoggedIn() && !window.location.pathname.includes('index.html')) {
+    const path = window.location.pathname;
+    if (!isLoggedIn() && !path.includes('index.html') && path !== '/' && path !== '') {
         console.log("Not authenticated, redirecting to login");
         window.location.replace('index.html');
     }
@@ -43,7 +44,8 @@ function requireAuth() {
 
 // Redirect if already logged in
 function redirectIfLoggedIn() {
-    if (isLoggedIn() && window.location.pathname.includes('index.html')) {
+    const path = window.location.pathname;
+    if (isLoggedIn() && (path.includes('index.html') || path === '/' || path === '')) {
         console.log("Already authenticated, redirecting to profile");
         window.location.replace('profile.html');
     }
@@ -225,10 +227,12 @@ function preventBackNavigation() {
 
 // Initialize authentication
 function initAuth() {
-    if (window.location.pathname.includes('index.html')) {
+    const path = window.location.pathname;
+    
+    if (path.includes('index.html') || path === '/' || path === '') {
         redirectIfLoggedIn();
         setupLoginForm();
-    } else if (window.location.pathname.includes('profile.html')) {
+    } else if (path.includes('profile.html')) {
         requireAuth();
         setupLogout();
         preventBackNavigation();
