@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reboot01 Student Dashboard</title>
+    
+    <!-- External Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+    
+    <!-- Local Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+    <!-- Main Header with Navigation -->
+    <header>
+        <h1>REBOOT<span style="color: var(--secondary-color);">01</span> DASHBOARD</h1>
+        <button id="logout-btn" class="btn-logout">Logout</button>
+    </header>
+    
+    <!-- Main Dashboard Content -->
+    <div class="container">
+        <!-- User Profile Section -->
+        <div class="profile-grid">
+            <section class="profile-info">
+                <h2>User Profile</h2>
+                <div id="user-info" class="card">Loading...</div>
+            </section>
+            
+            <!-- Progress Overview Section -->
+            <section class="progress-section">
+                <h2>Progress Overview</h2>
+                <div id="progress-info" class="card">
+                    <div class="stat-card">
+                        <span class="stat-label">Current Progress</span>
+                        <span class="stat-value">Loading...</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- XP Analytics Section -->
+        <section class="xp-section">
+            <h2>XP Analytics</h2>
+            <div id="xp-info" class="card">
+                <div class="stat-card">
+                    <span class="stat-label">Project XP (Exercises Excluded)</span>
+                    <span class="stat-value">Loading...</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Interactive Charts Section -->
+        <section class="stats-section">
+            <div class="graph-container">
+                <h3>XP Over Time</h3>
+                <div id="xp-graph" class="graph">
+                    <!-- SVG chart will be dynamically inserted here -->
+                </div>
+            </div>
+            
+            <div class="graph-container">
+                <h3>Projects Pass/Fail Ratio</h3>
+                <div id="ratio-graph" class="graph">
+                    <!-- SVG chart will be dynamically inserted here -->
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- JavaScript Dependencies -->
+    <script src="js/auth.js"></script>
+    <script src="js/graphql.js"></script>
+    <script src="js/graphs/xpGraph.js"></script>
+    <script src="js/graphs/ratioGraph.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>
